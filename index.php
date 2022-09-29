@@ -9,11 +9,23 @@ $pizzas = [
             "champi",
             "mozza",
             "jambon",
-            "olive",
-        ]
+            "olive"
+        ],
+        "like" => 3
     ],
     "2" => [
-
+        "name" => "4 fromage",
+        "base" => "Tomate",
+        "prix" => 10.90,
+        "ingredient" => [
+            "champi",
+            "mozza",
+            "gorgonzola",
+            "emmental",
+            "chevre",
+            "olive"
+        ],
+        "like" => 5
     ]
 ]
 
@@ -26,11 +38,40 @@ $pizzas = [
 </head>
 <body>
 
-<ul>
-    <li>
+<h1>Pizza Gang</h1>
 
-    </li>
-</ul>
+
+<table border="1">
+    <thead>
+        <th>Nom</th>
+        <th>Base</th>
+        <th>Prix</th>
+        <th>Ingredients</th>
+        <th>Like</th>
+    </thead>
+
+    <?php
+
+    foreach ($pizzas as $pizza) {
+        echo "<tr>";
+        echo "<td>".$pizza['name']."</td>";
+        echo "<td>".$pizza['base']."</td>";
+        echo "<td>".$pizza['prix']."</td>";
+        echo "<td>";
+        echo "<ul>";
+        foreach ($pizza["ingredient"] as $value) {
+            echo "<li>".$value."</li>";
+        }
+        echo "</ul>";
+        echo "</td>";
+        echo "<td>".$pizza['like']."</td>";
+
+        echo "</tr>";
+
+    }
+
+    ?>
+</table>
 
 
 </body>
